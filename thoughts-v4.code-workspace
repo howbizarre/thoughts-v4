@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "search.followSymlinks": false,
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.wrangler": true,
+      "**/.nuxt": true,
+      "**/.output": true,
+      "**/data": true,
+      "**/dist": true
+    },
+    "typescript.suggest.autoImports": true,
+    "javascript.format.semicolons": "insert",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
+}
