@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 const { t, locale } = useI18n();
 
+const { data: help } = await useAsyncData(() => queryCollection('static').path(`/static/${locale.value}/help`).first())
+
 const title = {
   "bg": "Как да се ориентирам",
   "en": "How to navigate"
@@ -18,7 +20,10 @@ useHead({
 </script>
 
 <template>
-  <div class="block h-[960px]">
+  <div>
     <h1>{{ t('LBL_INFO') }}</h1>
+
+    <ContentRenderer v-if="help" :value="help" />
+    <div v-else>Home not found</div>
   </div>
 </template>
