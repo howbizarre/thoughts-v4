@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 const { t, locale } = useI18n();
 
-const { data: help } = await useAsyncData(() => queryCollection('static').path(`/static/${locale.value}/help`).first())
+const { data: help } = await useLazyAsyncData('static-help-page', () => {
+  return queryCollection('static').path(`/static/${locale.value}/help`).first();
+});
 
 const title = {
   "bg": "Как да се ориентирам",
