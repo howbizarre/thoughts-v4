@@ -4,6 +4,6 @@ const { t } = useI18n();
 
 <template>
   <div class="block h-[960px]">
-    <h1>{{ t('LBL_LOAD_HOME_PAGE') }}</h1>
+    <h1>{{ t('LBL_INFO') }}</h1>
   </div>
 </template>

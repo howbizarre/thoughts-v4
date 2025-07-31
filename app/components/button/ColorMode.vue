@@ -18,7 +18,8 @@ const isDark = computed({
              @click="isDark = !isDark"
              :aria-label="t('BTN_THEME_SWITCH')"
              color="neutral"
-             variant="ghost" />
+             variant="ghost"
+             class="cursor-pointer" />
 
     <template #fallback>
       <div class="size-8" />

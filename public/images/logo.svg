@@ -1,0 +1,14 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+  <clipPath id="clip_wraped_ring">
+    <path id="wraped_ring" d="M209.8 12.46C285.71 45.46 320.54 133.89 287.54 209.8C254.53 285.71 166.1 320.54 90.19 287.54C14.28 254.53 -20.55 166.1 12.46 90.19C45.47 14.28 133.89 -20.55 209.8 12.46Z" opacity="1" fill="#a0b1c2" fill-opacity="0.5"></path>
+  </clipPath>
+  <use clip-path="url(#clip_wraped_ring)" xlink:href="#wraped_ring" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="40" stroke-opacity="1"></use>
+  <clipPath id="clip_fire">
+    <path id="fire" d="M201.82 30.81C235.5 103.82 245.73 155.5 232.53 185.87C212.72 231.42 159.66 252.32 114.12 232.52C68.57 212.72 47.67 159.66 67.48 114.11C80.68 83.74 125.46 55.97 201.82 30.81Z" opacity="1" fill="#ffff00" fill-opacity="1"></path>
+  </clipPath>
+  <use clip-path="url(#clip_fire)" xlink:href="#fire" opacity="1" fill-opacity="0" stroke="#990000" stroke-width="40" stroke-opacity="1"></use>
+  <path id="match_head" d="M161.96 122.49C177.14 129.09 184.11 146.78 177.51 161.96C170.91 177.14 153.22 184.11 138.04 177.5C122.86 170.9 115.89 153.22 122.49 138.04C129.09 122.85 146.78 115.89 161.96 122.49Z"></path>
+  <use xlink:href="#match_head" opacity="1" fill="#000000" fill-opacity="1"></use>
+  <path id="match_body" d="M126.45 156.16L140.09 170.79L52.34 252.61L38.7 237.99L126.45 156.16Z"></path>
+  <use xlink:href="#match_body" opacity="1" fill="#000000" fill-opacity="1"></use>
+</svg>

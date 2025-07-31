@@ -7,3 +7,9 @@
     </NuxtLayout>      
   </UApp>
 </template>
+
+<style>
+/* @reference "tailwindcss"; */
+
+
+</style>

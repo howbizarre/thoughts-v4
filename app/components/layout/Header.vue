@@ -18,10 +18,13 @@ onBeforeUnmount(() => window.removeEventListener('scroll', stickIt));
 </script>
 
 <template>
-  <header ref="header" class="max-w-3xl mx-auto flex transition-all duration-300 justify-between bg-white dark:bg-black rounded-2xl shadow-lg p-3 mb-10 sticky top-0 z-50">
-    <div>&nbsp;</div>
+  <header ref="header" class="max-w-3xl w-full mx-auto flex items-center transition-all duration-300 justify-between bg-white dark:bg-black rounded-2xl shadow-lg p-3 mb-10 sticky top-0 z-50">
+    <div class="flex items-center gap-2">
+      <ButtonHome />
+      <ButtonInfo />
+    </div>
 
-    <div class="grid grid-flow-col auto-cols-max gap-2">
+    <div class="flex justify-end gap-2">
       <ButtonLangSwitcher />
       <ButtonColorMode />
     </div>
