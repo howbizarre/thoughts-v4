@@ -1,13 +1,9 @@
-<template>
-  <div>
-    <h1>Welcome to the Home Page</h1>
-  </div>
-</template>
-
 <script lang="ts" setup>
-
+const { t } = useI18n();
 </script>
 
-<style>
-
-</style>
+<template>
+  <div>
+    <h1>{{ t('LBL_LOAD_HOME_PAGE') }}</h1>
+  </div>
+</template>

@@ -1,4 +1,5 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+const { t } = useI18n();
 const colorMode = useColorMode();
 
 const isDark = computed({
@@ -14,9 +15,10 @@ const isDark = computed({
 <template>
   <ClientOnly v-if="!colorMode?.forced">
     <UButton :icon="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'"
+             @click="isDark = !isDark"
+             :aria-label="t('BTN_THEME_SWITCH')"
              color="neutral"
-             variant="ghost"
-             @click="isDark = !isDark" />
+             variant="ghost" />
 
     <template #fallback>
       <div class="size-8" />

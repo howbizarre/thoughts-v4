@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['nitro-cloudflare-dev', '@nuxt/ui'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/ui', '@nuxtjs/i18n'],
 
   css: ['~/assets/css/main.css'],
 
@@ -9,6 +9,36 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: true,
       nodeCompat: true
+    }
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        language: 'en',
+        name: 'EN',
+        file: 'locales/en-US.json'
+      },
+      {
+        code: 'bg',
+        language: 'bg',
+        name: 'БГ',
+        file: 'locales/bg-BG.json'
+      }
+    ],
+    baseUrl: 'https://photostudionana.com',
+    langDir: './',
+    defaultLocale: 'bg',
+    vueI18n: './i18n.config.ts',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    },
+    strategy: 'prefix',
+    experimental: {
+      localeDetector: 'localeDetector.ts'
     }
   },
 
