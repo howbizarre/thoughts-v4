@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    css: { devSourcemap: true },
+    build: { sourcemap: false }
+  },
+
   i18n: {
     locales: [
       {
