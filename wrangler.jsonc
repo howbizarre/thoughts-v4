@@ -7,7 +7,7 @@
   "placement": { "mode": "smart" },
   "d1_databases": [
     {
-      "binding": "DB",
+      "binding": "THOUGHTS DB",
       "database_name": "hbs_thoughts_data",
       "database_id": "44477eef-ba68-4c12-97b8-bd72413e9f55"
     }

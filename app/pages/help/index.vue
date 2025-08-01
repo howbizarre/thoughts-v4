@@ -22,9 +22,7 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <h1>{{ t('LBL_INFO') }}</h1>
-
+  <div class="content">
     <ContentRenderer v-if="help" :value="help" />
     <div v-else>Home not found</div>
   </div>
