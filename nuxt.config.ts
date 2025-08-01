@@ -23,7 +23,18 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: true,
       nodeCompat: true
-    }
+    },
+
+    prerender: {
+      crawlLinks: true
+    },
+
+    serverAssets: [
+      {
+        baseName: 'content',
+        dir: 'content'
+      }
+    ]
   },
 
   vite: {
@@ -81,7 +92,7 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  
+
   // Add experimental options for better Cloudflare compatibility
   experimental: {
     payloadExtraction: false, // Disable payload extraction for Cloudflare
