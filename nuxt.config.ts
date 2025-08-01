@@ -80,5 +80,11 @@ export default defineNuxtConfig({
 
   ssr: true,
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: false }
+  devtools: { enabled: false },
+  
+  // Add experimental options for better Cloudflare compatibility
+  experimental: {
+    payloadExtraction: false, // Disable payload extraction for Cloudflare
+    watcher: 'chokidar' // Use chokidar for file watching
+  }
 });
