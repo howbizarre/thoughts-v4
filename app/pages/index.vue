@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-const { t, locale } = useI18n();
+const { locale } = useI18n();
+
+const { data: articles } = await useLazyAsyncData('articles-' + locale.value, async () => {
+  return await queryCollection(`articles_${locale.value}`).order('date', 'DESC').limit(3).all();
+}, { watch: [locale] });
 
 const description = {
   "bg": "Статии, предимно за Vue, Nuxt, TailwindCSS, TypeScript, но не само. Повече за front-end и по-малко за back-end.",
@@ -13,7 +17,12 @@ useHead({
 </script>
 
 <template>
-  <div class="block h-[960px]">
-    <h1>{{ t('LBL_LOAD_HOME_PAGE') }}</h1>
+  <div class="content">
+    <template v-if="articles">
+      <template v-for="article in articles" :key="article.path">
+        <h2>{{ article.title }}</h2>
+        <ContentRenderer v-if="'excerpt' in article" :value="article.excerpt" />
+      </template>
+    </template>
   </div>
 </template>
