@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 const { locale } = useI18n();
 
-// Ensure locale is reactive and available on both server and client
 const currentLocale = computed(() => locale.value || 'bg');
 
-const { data: articles, pending, error } = await useAsyncData(
-  `articles-${currentLocale.value}`, 
-  async () => {    
+const { data: articles, pending, error } = await useAsyncData(`articles-${currentLocale.value}`, async () => {    
     try {
       const collectionName = `articles_${currentLocale.value}` as 'articles_bg' | 'articles_en';      
       const result = await queryCollection(collectionName)
@@ -19,17 +16,7 @@ const { data: articles, pending, error } = await useAsyncData(
       console.error('Error fetching articles:', error);
       return [];
     }
-  },
-  { 
-    watch: [currentLocale],
-    server: true, // Ensure it runs on server
-    default: () => [], // Provide default value
-    lazy: false, // Force immediate execution
-    transform: (data) => {
-      console.log('Transform called with data:', data);
-      return Array.isArray(data) ? data : [];
-    }
-  }
+  }, { watch: [currentLocale] }
 );
 
 const description = {
@@ -44,17 +31,17 @@ useHead({
 </script>
 
 <template>
-  <div class="content">    
+  <div class="content">
     <!-- Loading state -->
-    <div v-if="pending" class="text-center text-gray-500">
+    <div v-if="pending" class="text-center">
       {{ currentLocale === 'bg' ? 'Зареждане на статии...' : 'Loading articles...' }}
     </div>
-    
+
     <!-- Error state -->
-    <div v-else-if="error" class="text-center text-red-500">
+    <div v-else-if="error" class="text-center">
       {{ currentLocale === 'bg' ? 'Грешка при зареждане на статии.' : 'Error loading articles.' }}
     </div>
-    
+
     <!-- Articles content -->
     <template v-else-if="articles && Array.isArray(articles) && articles.length > 0">
       <template v-for="(article, index) in articles" :key="article.path || article.slug || `article-${index}`">
@@ -62,10 +49,10 @@ useHead({
         <ContentRenderer v-if="article.excerpt" :value="article.excerpt" />
       </template>
     </template>
-    
+
     <!-- No articles fallback -->
     <template v-else>
-      <div class="text-center text-gray-500">
+      <div class="text-center">
         {{ currentLocale === 'bg' ? 'Няма статии за показване.' : 'No articles to display.' }}
       </div>
     </template>
