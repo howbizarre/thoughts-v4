@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { locale } = useI18n();
 
-const { data: articles } = await useLazyAsyncData('articles-' + locale.value, async () => {
+const { data: articles } = await useAsyncData('articles-' + locale.value, async () => {
   return await queryCollection(`articles_${locale.value}`).order('date', 'DESC').limit(3).all();
 }, { watch: [locale] });
 

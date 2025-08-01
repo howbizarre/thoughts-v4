@@ -1,6 +1,6 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content';
 
-const commonSchema = z.object({
+const articleSchema = z.object({
   title: z.string().min(3).max(100),
   date: z.date(),
   draft: z.boolean().default(false),
@@ -26,7 +26,7 @@ export default defineContentConfig({
         include: 'articles/bg/**',
         prefix: ''
       },
-      schema: commonSchema
+      schema: articleSchema
     }),
     articles_en: defineCollection({
       type: 'page',
@@ -34,7 +34,7 @@ export default defineContentConfig({
         include: 'articles/en/**',
         prefix: ''
       },
-      schema: commonSchema
+      schema: articleSchema
     })
   }
 });
