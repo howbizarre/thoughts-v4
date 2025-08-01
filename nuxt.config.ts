@@ -61,6 +61,23 @@ export default defineNuxtConfig({
     }
   },
 
+  content: {
+    database: {
+      type: 'd1',
+      bindingName: 'hbs_thoughts_data'
+    },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark'
+          }
+        }
+      }
+    }
+  },
+
   ssr: true,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false }
