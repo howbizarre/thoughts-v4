@@ -17,6 +17,10 @@ export default defineContentConfig({
         slug: z.string(),
         navigation: z.boolean().default(false),
         competence: z.array(z.string()),
+        excerpt: z.object({
+          type: z.string(),
+          children: z.any()
+        })
       })
     })
   }
